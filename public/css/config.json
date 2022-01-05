@@ -1,26 +1,26 @@
 {
   "workflowApiVersion": "1.1",
   "metaData": {
-    "icon": "images/whatsapp.png",
-    "iconSmall": "images/whatsapp.png",
+    "icon": "images/PushNotification2.png",
+    "iconSmall": "images/PushNotification2.png",
     "category": "message"
   },
   "type": "REST",
   "lang": {
     "en-US": {
-      "name": "Whatsapp Omnichat",
-      "description": "HSM message via WhatsApp."
+      "name": "Push Notification LEOAPP",
+      "description": "Envio de push notification através do LEOAPP."
     },
     "pt-BR": {
-      "name": "Whatsapp Omnichat",
-      "description": "Envio de mensagem via WhatsApp."
+      "name": "Push Notification Uniasselvi",
+      "description": "Envio de push notification através do LEOAPP."
     }
   },
   "arguments": {
     "execute": {
       "inArguments": [],
       "outArguments": [],
-      "url": "https://omnichatuniasselvi.herokuapp.com/journeybuilder/execute",
+      "url": "https://pushuniasselve.herokuapp.com/journeybuilder/execute",
       "verb": "POST",
       "body": "",
       "header": "",
@@ -32,29 +32,29 @@
   "configurationArguments": {
     "applicationExtensionKey": "",
     "save": {
-      "url": "https://omnichatuniasselvi.herokuapp.com/journeybuilder/save",
+      "url": "https://pushuniasselve.herokuapp.com/journeybuilder/save",
       "verb": "POST",
       "useJwt": true
     },
     "publish": {
-      "url": "https://omnichatuniasselvi.herokuapp.com/journeybuilder/publish",
+      "url": "https://pushuniasselve.herokuapp.com/journeybuilder/publish",
       "verb": "POST",
       "useJwt": true
     },
     "validate": {
-      "url": "https://omnichatuniasselvi.herokuapp.com/journeybuilder/validate",
+      "url": "https://pushuniasselve.herokuapp.com/journeybuilder/validate",
       "verb": "POST",
       "useJwt": true
     },
     "stop": {
-      "url": "https://omnichatuniasselvi.herokuapp.com/journeybuilder/stop",
+      "url": "https://pushuniasselve.herokuapp.com/journeybuilder/stop",
       "verb": "POST",
       "useJwt": true
     }
   },
   "wizardSteps": [
     {
-      "label": "Configure HSM Template",
+      "label": "Configure Push Notification",
       "key": "step1"
     }
   ],
