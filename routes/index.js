@@ -4,6 +4,7 @@ var activity = require('./activity');
 
 exports.index = function (req, res) {
     console.log('index request!');
+    console.log(req.session.token);
 
     if (!req.session.token) {
         res.render('index', {
