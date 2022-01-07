@@ -88,9 +88,9 @@ exports.execute = function (req, res) {
                 'Content-Type': 'application/json'
               } 
             const data = {               
-                "to": 4067673,               
+                "to": platformId,               
                 "type": 1,                
-                "message": "Mario, vem pra Uniasselvi, inscreva-se agora mesmo!",                
+                "message": TemplateId,                
                 "processor": "pushwoosh",                
                 "queue_type": 2,               
                 "priority": 2 
