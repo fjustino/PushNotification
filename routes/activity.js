@@ -77,7 +77,7 @@ exports.execute = function (req, res) {
             const TemplateId = decodedArgs['TemplateId'];
             const platformId = decodedArgs['platformId'];
             const parameters = decodedArgs['parameters'];
-           
+            var mensagem = TemplateId;
 
             console.log('TemplateId', TemplateId);
             console.log('platformId', platformId);
@@ -87,11 +87,11 @@ exports.execute = function (req, res) {
             var regexp = new RegExp(/{[0-9]+}/g);
             //var tokens = ['Justino','Culinária','26/02/2022'];
             //console.log(string) 
-            var matches = TemplateId.match(regexp);
+            var matches = mensagem.match(regexp);
             for(var i=0; i < matches.length; i++){
-                TemplateId = TemplateId.replace(matches[i],parameters[i]) 
+                mensagem = mensagem.replace(matches[i],parameters[i]) 
             }
-            console.log(TemplateId)
+            console.log(mensagem)
 
             const headers = { 
                 'Authorization': 'Basic Z2lvY29uZGE6dW5pYXNzZWx2aXVodWJyZWdpc3Rlcg==', 
@@ -100,7 +100,7 @@ exports.execute = function (req, res) {
             const data = {               
                 "to": platformId,               
                 "type": 1,                
-                "message": TemplateId,                
+                "message": mensagem,                
                 "processor": "pushwoosh",                
                 "queue_type": 2,               
                 "priority": 2 
