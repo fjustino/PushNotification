@@ -58,7 +58,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #57b846;
+  color: #c9c311;
 }
 
 /*---------------------------------------------*/
@@ -168,11 +168,11 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #0f5a16;
-  background: -webkit-linear-gradient(-135deg, #2da639, #0f4614);
-  background: -o-linear-gradient(-135deg, #2da639, #0f4614);
-  background: -moz-linear-gradient(-135deg, #2da639, #0f4614);
-  background: linear-gradient(-135deg, #2da639, #0f4614);
+  background: #595a0f;
+  background: -webkit-linear-gradient(-135deg, #96a62d, #3f460f);
+  background: -o-linear-gradient(-135deg, #96a62d, #3f460f);
+  background: -moz-linear-gradient(-135deg, #96a62d, #3f460f);
+  background: linear-gradient(-135deg, #96a62d, #3f460f);
 }
 
 .wrap-login100 {
@@ -304,7 +304,7 @@ iframe {
 }
 
 .input100:focus + .focus-input100 + .symbol-input100 {
-  color: #57b846;
+  color: #b6b846;
   padding-left: 28px;
 }
 
@@ -332,7 +332,7 @@ iframe {
   width: 100%;
   height: 50px;
   border-radius: 25px;
-  background: #57b846;
+  background: #b8ab46;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;

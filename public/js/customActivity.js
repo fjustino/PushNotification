@@ -116,12 +116,12 @@ define(function (require) {
     }
 
     function onGetTokens(tokens) {
-        // console.log(tokens);
+        console.log(tokens);
         authTokens = tokens;
     }
 
     function onGetEndpoints(endpoints) {
-        // console.log(endpoints);
+        console.log(endpoints);
     }
 
     function requestedInteractionHandler(settings) {
