@@ -83,6 +83,16 @@ exports.execute = function (req, res) {
             console.log('platformId', platformId);
             console.log('parameters', parameters);
 
+            //var string = "Olá {1}, bem vindo ao curso {2} que começa dia {3}"; 
+            var regexp = new RegExp(/{[0-9]+}/g);
+            //var tokens = ['Justino','Culinária','26/02/2022'];
+            //console.log(string) 
+            var matches = TemplateId.match(regexp);
+            for(var i=0; i < matches.length; i++){
+                TemplateId = TemplateId.replace(matches[i],parameters[i]) 
+            }
+            console.log(TemplateId)
+
             const headers = { 
                 'Authorization': 'Basic Z2lvY29uZGE6dW5pYXNzZWx2aXVodWJyZWdpc3Rlcg==', 
                 'Content-Type': 'application/json'
