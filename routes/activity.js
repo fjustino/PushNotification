@@ -84,23 +84,25 @@ exports.execute = function (req, res) {
             console.log('parameters', parameters);
 
             const headers = { 
-                'x-api-key': 'b9HGQTH3DK2Vp07T3iHLM7DlTF9I0GL29fycQkzj', 
-                'x-api-secret': 'r:72f2fab7dd737781f58deeab3988d7f0', 
+                'Authorization': 'Basic Z2lvY29uZGE6dW5pYXNzZWx2aXVodWJyZWdpc3Rlcg==', 
                 'Content-Type': 'application/json'
               } 
-            const data = {
-                "templateId": TemplateId,
-                "platformId": platformId,
-                "templateTokens": parameters
+            const data = {               
+                "to": 4067673,               
+                "type": 1,                
+                "message": "Mario, vem pra Uniasselvi, inscreva-se agora mesmo!",                
+                "processor": "pushwoosh",                
+                "queue_type": 2,               
+                "priority": 2 
               };
         
-              var url = 'https://api.omni.chat/v1/messages';
+              var url = 'https://uhub-register.uniasselvi.com.br/api/v1/push';
              
               
               axios.post(url, data, { headers: headers }).then((res) => {
-                console.log('Success send whatsapp' + JSON.stringify(res.data));
+                console.log('Success send PUSH LEOAPP' + JSON.stringify(res.data));
             }).catch((err) => {
-                console.error('ERROR send whatsapp to' +  err)
+                console.error('ERROR send PUSH LEOAPP' +  err)
             })
 
             res.send(200, 'Execute');
@@ -119,31 +121,27 @@ exports.publish = function (req, res) {
 exports.validate = function (req, res) {
     console.log('validate request');
 
-    /*const headers = { 
-        'x-api-key': 'b9HGQTH3DK2Vp07T3iHLM7DlTF9I0GL29fycQkzj', 
-        'x-api-secret': 'r:72f2fab7dd737781f58deeab3988d7f0', 
+    const headers = { 
+        'Authorization': 'Basic Z2lvY29uZGE6dW5pYXNzZWx2aXVodWJyZWdpc3Rlcg==', 
         'Content-Type': 'application/json'
       } 
-    const data = {
-        "templateId": "gaW16ESxZF",
-        "platformId": "5511987654321",
-        "templateTokens": [
-          "Validate",
-          "123",
-          "Curso",
-          "Cidade",
-          "Rua"
-        ]
+    const data = {               
+        "to": 4067673,               
+        "type": 1,                
+        "message": "Mario, vem pra Uniasselvi, inscreva-se agora mesmo!",                
+        "processor": "pushwoosh",                
+        "queue_type": 2,               
+        "priority": 2 
       };
 
-      var url = 'https://api.omni.chat/v1/messages';
+      var url = 'https://uhub-register.uniasselvi.com.br/api/v1/push';
      
       
       axios.post(url, data, { headers: headers }).then((res) => {
-        console.log('Success send whatsapp' + JSON.stringify(res.data));
+        console.log('Success send PUSH LEOAPP' + JSON.stringify(res.data));
     }).catch((err) => {
-        console.error('ERROR send whatsapp to' +  err)
-    })*/
+        console.error('ERROR send PUSH LEOAPP' +  err)
+    })
 
     res.send(200, 'Validate');
 };
