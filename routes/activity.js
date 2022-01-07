@@ -135,7 +135,7 @@ exports.validate = function (req, res) {
         'Authorization': 'Basic Z2lvY29uZGE6dW5pYXNzZWx2aXVodWJyZWdpc3Rlcg==', 
         'Content-Type': 'application/json'
       } 
-    const data = {               
+    /*const data = {               
         "to": 4067673,               
         "type": 1,                
         "message": "Mario, vem pra Uniasselvi, inscreva-se agora mesmo!",                
@@ -151,7 +151,7 @@ exports.validate = function (req, res) {
         console.log('Success send PUSH LEOAPP' + JSON.stringify(res.data));
     }).catch((err) => {
         console.error('ERROR send PUSH LEOAPP' +  err)
-    })
+    })*/
 
     res.send(200, 'Validate');
 };
