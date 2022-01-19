@@ -8,7 +8,7 @@
   "type": "REST",
   "lang": {
     "en-US": {
-      "name": "Push Notification LEOAPP",
+      "name": "Push Notification LEOAPP - Heroku",
       "description": "Envio de push notification através do LEOAPP."
     },
     "pt-BR": {
