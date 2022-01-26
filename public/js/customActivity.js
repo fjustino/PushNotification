@@ -9,6 +9,7 @@ define(function (require) {
 
     var eventDefinitionKey = null;
     var tituloPush = null;
+    var parametrosTituloPush = null
     var message = null;
     var matricula = null;
     var parameterList = null;
@@ -79,6 +80,9 @@ define(function (require) {
                 document.getElementById('tituloPush').disabled = true;
                 tituloPush = $('#tituloPush').val();
 
+                document.getElementById('parametrosTituloPush').disabled = true;
+                parametrosTituloPush = $('#parametrosTituloPush').val();
+
                 document.getElementById('message').disabled = true;
                 message = $('#message').val();
 
@@ -106,8 +110,11 @@ define(function (require) {
 
         if (message) {
 
-            document.getElementById('message').disabled = true;
-            document.getElementById('message').value = message;
+            document.getElementById('tituloPush').disabled = true;
+            document.getElementById('tituloPush').value = tituloPush;
+
+            document.getElementById('parametrosTituloPush').disabled = true;
+            document.getElementById('parametrosTituloPush').value = parametrosTituloPush;
 
             document.getElementById('message').disabled = true;
             document.getElementById('message').value = message;
@@ -144,12 +151,16 @@ define(function (require) {
 
     function save() {
         var parameters = parameterList.split(',');
-        parameters = parameters.map(parameterName => `{{Event.${eventDefinitionKey}.\"${parameterName}\"}}`);
+        parameters = parameters.map(parameterNameTitulo => `{{Event.${eventDefinitionKey}.\"${parameterNameTitulo}\"}}`);
+
+        var parametersTitulo = parametrosTituloPush.split(',');
+        parametersTitulo = parametersTitulo.map(parameterNameTitulo => `{{Event.${eventDefinitionKey}.\"${parameterNameTitulo}\"}}`);
 
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "contactIdentifier": "{{Contact.Key}}",
             "tituloPush": tituloPush,
+            "parametersTitulo": parametersTitulo,
             "matricula": `{{Event.${eventDefinitionKey}.\"${matricula}\"}}`,
             "message": message,
             "parameters": parameters

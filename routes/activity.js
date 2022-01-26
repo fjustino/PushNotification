@@ -78,7 +78,9 @@ exports.execute = function (req, res) {
             const message = decodedArgs['message'];
             const matricula = decodedArgs['matricula'];
             const parameters = decodedArgs['parameters'];
+            const parametersTitulo = decodedArgs['parametersTitulo'];
             var mensagem = message;
+            var titulo = tituloPush;
 
             console.log('TemplateId', tituloPush);
             console.log('TemplateId', message);
@@ -89,18 +91,25 @@ exports.execute = function (req, res) {
             var regexp = new RegExp(/{[0-9]+}/g);
             //var tokens = ['Justino','Culinária','26/02/2022'];
             //console.log(string) 
+
             var matches = mensagem.match(regexp);
             for(var i=0; i < matches.length; i++){
                 mensagem = mensagem.replace(matches[i],parameters[i]) 
             }
             console.log(mensagem);
 
+            var matchestitulo = tituloPush.match(regexp);
+            for(var j=0; j < matchestitulo.length; j++){
+                titulo = titulo.replace(matchestitulo[j],parametersTitulo[j]) 
+            }
+            console.log(titulo);
+
             const headers = { 
                 'Authorization': 'Basic Z2lvY29uZGE6dW5pYXNzZWx2aXVodWJyZWdpc3Rlcg==', 
                 'Content-Type': 'application/json'
               } 
             const data = {     
-                "title": tituloPush,      
+                "title": titulo,      
                 "to": matricula,               
                 "type": 1,                
                 "message": mensagem,                
