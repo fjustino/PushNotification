@@ -8,8 +8,9 @@ define(function (require) {
     var authTokens = {};
 
     var eventDefinitionKey = null;
-    var templateCode = null;
-    var phoneFieldName = null;
+    var tituloPush = null;
+    var message = null;
+    var matricula = null;
     var parameterList = null;
 
     $(window).ready(onRender);
@@ -75,11 +76,14 @@ define(function (require) {
             evt.preventDefault();
 
             if (validate()) {
-                document.getElementById('templateCode').disabled = true;
-                templateCode = $('#templateCode').val();
+                document.getElementById('tituloPush').disabled = true;
+                tituloPush = $('#tituloPush').val();
 
-                document.getElementById('phoneFieldName').disabled = true;
-                phoneFieldName = $('#phoneFieldName').val();
+                document.getElementById('message').disabled = true;
+                message = $('#message').val();
+
+                document.getElementById('matricula').disabled = true;
+                matricula = $('#matricula').val();
 
                 document.getElementById('parameterList').disabled = true;
                 parameterList = $('#parameterList').val();
@@ -98,17 +102,21 @@ define(function (require) {
             console.log(payload);
         }
 
-        templateCode = payload['arguments'].templateCode;
+        message = payload['arguments'].message;
 
-        if (templateCode) {
-            document.getElementById('templateCode').disabled = true;
-            document.getElementById('templateCode').value = templateCode;
+        if (message) {
 
-            document.getElementById('phoneFieldName').disabled = true;
-            document.getElementById('phoneFieldName').value = templateCode;
+            document.getElementById('message').disabled = true;
+            document.getElementById('message').value = message;
+
+            document.getElementById('message').disabled = true;
+            document.getElementById('message').value = message;
+
+            document.getElementById('matricula').disabled = true;
+            document.getElementById('matricula').value = matricula;
 
             document.getElementById('parameterList').disabled = true;
-            document.getElementById('parameterList').value = templateCode;
+            document.getElementById('parameterList').value = parameterList;
 
             document.getElementById('toggleActive').disabled = true;
             document.getElementById('toggleActive').innerHTML = "Ativado";
@@ -141,7 +149,9 @@ define(function (require) {
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "contactIdentifier": "{{Contact.Key}}",
-            "TemplateId": templateCode,
+            "tituloPush": tituloPush,
+            "message": message,
+            "matricula": matricula,
             "platformId": `{{Event.${eventDefinitionKey}.\"${phoneFieldName}\"}}`,
             "parameters": parameters
  

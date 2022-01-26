@@ -74,13 +74,15 @@ exports.execute = function (req, res) {
             console.log('inArguments', JSON.stringify(decoded.inArguments));
             console.log('decodedArgs', JSON.stringify(decodedArgs));
 
-            const TemplateId = decodedArgs['TemplateId'];
-            const platformId = decodedArgs['platformId'];
+            const tituloPush = decodedArgs['tituloPush'];
+            const message = decodedArgs['message'];
+            const matricula = decodedArgs['matricula'];
             const parameters = decodedArgs['parameters'];
-            var mensagem = TemplateId;
+            var mensagem = message;
 
-            console.log('TemplateId', TemplateId);
-            console.log('platformId', platformId);
+            console.log('TemplateId', tituloPush);
+            console.log('TemplateId', message);
+            console.log('platformId', matricula);
             console.log('parameters', parameters);
 
             //var string = "Olá {1}, bem vindo ao curso {2} que começa dia {3}"; 
@@ -91,14 +93,15 @@ exports.execute = function (req, res) {
             for(var i=0; i < matches.length; i++){
                 mensagem = mensagem.replace(matches[i],parameters[i]) 
             }
-            console.log(mensagem)
+            console.log(mensagem);
 
             const headers = { 
                 'Authorization': 'Basic Z2lvY29uZGE6dW5pYXNzZWx2aXVodWJyZWdpc3Rlcg==', 
                 'Content-Type': 'application/json'
               } 
-            const data = {               
-                "to": platformId,               
+            const data = {     
+                "tituloPush": tituloPush,      
+                "to": matricula,               
                 "type": 1,                
                 "message": mensagem,                
                 "processor": "pushwoosh",                
@@ -135,23 +138,6 @@ exports.validate = function (req, res) {
         'Authorization': 'Basic Z2lvY29uZGE6dW5pYXNzZWx2aXVodWJyZWdpc3Rlcg==', 
         'Content-Type': 'application/json'
       } 
-    /*const data = {               
-        "to": 4067673,               
-        "type": 1,                
-        "message": "Mario, vem pra Uniasselvi, inscreva-se agora mesmo!",                
-        "processor": "pushwoosh",                
-        "queue_type": 2,               
-        "priority": 2 
-      };
-
-      var url = 'https://uhub-register.uniasselvi.com.br/api/v1/push';
-     
-      
-      axios.post(url, data, { headers: headers }).then((res) => {
-        console.log('Success send PUSH LEOAPP' + JSON.stringify(res.data));
-    }).catch((err) => {
-        console.error('ERROR send PUSH LEOAPP' +  err)
-    })*/
 
     res.send(200, 'Validate');
 };
