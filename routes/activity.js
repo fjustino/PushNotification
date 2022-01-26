@@ -100,7 +100,7 @@ exports.execute = function (req, res) {
                 'Content-Type': 'application/json'
               } 
             const data = {     
-                "tituloPush": tituloPush,      
+                "title": tituloPush,      
                 "to": matricula,               
                 "type": 1,                
                 "message": mensagem,                

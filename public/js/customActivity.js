@@ -150,9 +150,8 @@ define(function (require) {
             "tokens": authTokens,
             "contactIdentifier": "{{Contact.Key}}",
             "tituloPush": tituloPush,
+            "matricula": `{{Event.${eventDefinitionKey}.\"${matricula}\"}}`,
             "message": message,
-            "matricula": matricula,
-            "platformId": `{{Event.${eventDefinitionKey}.\"${phoneFieldName}\"}}`,
             "parameters": parameters
  
         }];
