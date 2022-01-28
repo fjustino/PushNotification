@@ -92,17 +92,30 @@ exports.execute = function (req, res) {
             //var tokens = ['Justino','Culinária','26/02/2022'];
             //console.log(string) 
 
+
+
             var matches = mensagem.match(regexp);
-            for(var i=0; i < matches.length; i++){
-                mensagem = mensagem.replace(matches[i],parameters[i]) 
-            }
             console.log(mensagem);
+            console.log(matches);
+            if(matches != null)
+            {
+                for(var i=0; i < matches.length; i++){
+                    mensagem = mensagem.replace(matches[i],parameters[i]) 
+                }
+                console.log(mensagem);
+            }
+            
 
             var matchestitulo = tituloPush.match(regexp);
-            for(var j=0; j < matchestitulo.length; j++){
-                titulo = titulo.replace(matchestitulo[j],parametersTitulo[j]) 
-            }
             console.log(titulo);
+            console.log(matchestitulo);
+            if(matchestitulo != null)
+            {
+                for(var j=0; j < matchestitulo.length; j++){
+                    titulo = titulo.replace(matchestitulo[j],parametersTitulo[j]) 
+                }
+                console.log(titulo);
+            }
 
             const headers = { 
                 'Authorization': 'Basic Z2lvY29uZGE6dW5pYXNzZWx2aXVodWJyZWdpc3Rlcg==', 
