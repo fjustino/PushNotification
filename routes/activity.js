@@ -130,7 +130,7 @@ exports.execute = function (req, res) {
                 "type": 1,                
                 "message": mensagem,                
                 "processor": "pushwoosh",                
-                "queue_type": 2,               
+                "queue_type": 1,               
                 "priority": 2 
             };
         
