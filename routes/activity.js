@@ -92,8 +92,8 @@ exports.execute = function (req, res) {
             var dataPush;
 
             console.log('TemplateId', tituloPush);
-            console.log('TemplateId', message);
-            console.log('platformId', matricula);
+            console.log('message', message);
+            console.log('matricula', matricula);
             console.log('parameters', parameters);
 
             //var string = "Olá {1}, bem vindo ao curso {2} que começa dia {3}"; 
