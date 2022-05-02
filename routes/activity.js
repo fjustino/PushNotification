@@ -133,13 +133,15 @@ exports.execute = function (req, res) {
                 "queue_type": 1,               
                 "priority": 2 
             };
+
+            console.log(data);
         
             var url = 'https://uhub-register.uniasselvi.com.br/api/v1/push';
               
             axios.post(url, data, { headers: headers }).then((res) => {
 
                 console.log('Success send PUSH LEOAPP' + JSON.stringify(res.data));
-                var idPush = res.data.id;
+                /*var idPush = res.data.id;
                 var url = url + '/' + idPush;
                 console.log(idPush);
                 axios.get(url, { headers: headers }).then((resGet) => {
@@ -171,7 +173,7 @@ exports.execute = function (req, res) {
                 }).catch((errGet) => {
                     console.error('ERROR get PUSH LEOAPP' +  errGet)
 
-                })
+                })*/
 
                 resGet.send(200, 'Execute');
             }).catch((err) => {
