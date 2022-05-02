@@ -110,7 +110,6 @@ exports.execute = function (req, res) {
                 console.log(mensagem);
             }
             
-
             var matchestitulo = tituloPush.match(regexp);
             if(matchestitulo != null)
             {
@@ -141,41 +140,7 @@ exports.execute = function (req, res) {
             axios.post(url, data, { headers: headers }).then((res) => {
 
                 console.log('Success send PUSH LEOAPP' + JSON.stringify(res.data));
-                /*var idPush = res.data.id;
-                var url = url + '/' + idPush;
-                console.log(idPush);
-                axios.get(url, { headers: headers }).then((resGet) => {
-                console.log('Success get PUSH LEOAPP' + JSON.stringify(resGet.data));
-
-                toPush = resGet.data.to;
-                titlePush = resGet.data.title;
-                messagePush = resGet.data.message;
-                statusPush = resGet.data.status;
-
-                if(statusPush == 'OK'){   
-                    messageCodePush = resGet.data.result.error.message;
-                    TrackingCodes = resGet.data.result.code;
-                    dataPush = resGet.data.createdAt;
-                } else if (statusPush == 'ERRO'){
-                    messageCodePush = resGet.data.result.response.Messages[0];
-                    TrackingCodes = resGet.data.result.response.TrackingCodes[0];
-                    dataPush = resGet.data.createdAt;
-                }
                 
-                console.log(toPush);
-                console.log(titlePush);
-                console.log(messagePush);
-                console.log(statusPush);
-                console.log(messageCodePush);
-                console.log(TrackingCodes);
-                console.log(dataPush);
-                
-                }).catch((errGet) => {
-                    console.error('ERROR get PUSH LEOAPP' +  errGet)
-
-                })*/
-
-                resGet.send(200, 'Execute');
             }).catch((err) => {
                 console.error('ERROR send PUSH LEOAPP' +  err)
             })
